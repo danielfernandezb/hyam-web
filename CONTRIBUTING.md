@@ -16,10 +16,12 @@ npm run dev      # http://localhost:3000
 ```bash
 npm run lint
 npm run test
+npm run test:coverage
+npm run test:e2e      # primera vez: npx playwright install chromium
 npm run build
 ```
 
-Los tres pasos deben pasar sin errores. El CI corre exactamente lo mismo, así que
+Los cinco pasos deben pasar sin errores. El CI corre exactamente lo mismo, así que
 un fallo local es un fallo del PR. También puedes ejecutar `npm run check`.
 
 ## Ramas

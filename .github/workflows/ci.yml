@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   quality:
-    name: Lint y build · Node ${{ matrix.node }}
+    name: Lint, tests y build · Node ${{ matrix.node }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -42,6 +42,10 @@ jobs:
       - name: Tests unitarios
         run: npm run test
 
+      - name: Cobertura con umbrales
+        if: matrix.node == 20
+        run: npm run test:coverage
+
       - name: Build de producción
         run: npm run build
 
@@ -64,6 +68,47 @@ jobs:
           path: dist
           retention-days: 7
           if-no-files-found: error
+
+      - name: Publicar reporte de cobertura
+        if: matrix.node == 20
+        uses: actions/upload-artifact@v7
+        with:
+          name: cobertura
+          path: coverage/lcov.info
+          retention-days: 7
+          if-no-files-found: warn
+
+  e2e:
+    name: Pruebas de interfaz (Playwright)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Configurar Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Instalar dependencias (lockfile estricto)
+        run: npm ci
+
+      - name: Instalar Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Ejecutar pruebas e2e (build incluido)
+        run: npm run test:e2e
+
+      - name: Publicar reporte de Playwright
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: playwright-report
+          path: playwright-report
+          retention-days: 7
+          if-no-files-found: ignore
 
   audit:
     name: Auditoría de dependencias

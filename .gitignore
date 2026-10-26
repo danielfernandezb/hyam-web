@@ -27,3 +27,9 @@ Thumbs.db
 
 # Datos locales de PocketBase
 pb_data/
+
+# Resultados de pruebas
+coverage/
+playwright-report/
+test-results/
+blob-report/

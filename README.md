@@ -85,23 +85,30 @@ npm run lint
 | --- | --- | --- |
 | Lint | ESLint 9 | push y PR |
 | Tests unitarios | Vitest (32 casos) | push y PR |
+| Cobertura con umbrales | `@vitest/coverage-v8` | push y PR |
+| Pruebas de interfaz | Playwright (24 casos, escritorio + móvil) | push y PR |
 | Build | Vite 7 en Node 20 y 22 | push y PR |
 | Presupuesto de bundle | JS ≤ 800 KB | push y PR |
 | Auditoría de dependencias | `npm audit` (high/critical) | push y PR |
 | Análisis estático | CodeQL `security-and-quality` | push, PR y semanal |
 | Actualizaciones | Dependabot | semanal (npm) / mensual (Actions) |
 
+Las pruebas e2e cubren lo que un test unitario no puede: el titular del hero, el enlace real de WhatsApp, las seis anclas del menú, el menú móvil, el desbordamiento horizontal, el texto alternativo de las imágenes, los metadatos de Open Graph y la ausencia de errores en consola. Usan Chromium en dos viewports (1280×900 y Pixel 5) y sustituyen las fotos del CDN por un píxel para no depender de la red.
+
 ```bash
-npm ci            # instalación reproducible
-npm run lint      # ESLint
-npm run test      # Vitest
-npm run check     # lint + tests + build de una vez
+npm ci                 # instalación reproducible
+npm run lint           # ESLint
+npm run test           # Vitest
+npm run test:coverage  # Vitest + cobertura con umbrales
+npm run test:e2e       # build + Playwright (requiere: npx playwright install chromium)
+npm run check          # lint + tests + build de una vez
 ```
 
 ## Notas de ingeniería
 
 - **Un solo componente de página** para toda la landing: el estado visual vive en `HyamPage.jsx` (secciones, animaciones y datos del menú), sin dependencias de estado global.
 - **Pedido por WhatsApp sin backend propio**: menos superficie de ataque, cero fricción para la marca.
+- **Portada social sacada del producto real**: `public/og-cover.jpg` (1200×630, 108 KB) se captura del propio hero con Playwright y se versiona, así el enlace preview de WhatsApp y redes no depende de servicios externos.
 - **Sin secretos en el repo**: las credenciales de PocketBase y del mailer se leen de variables de entorno en el servidor.
 - Fuera del repositorio: base de datos real, binario de PocketBase, builds y notas internas.
 

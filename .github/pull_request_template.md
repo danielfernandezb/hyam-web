@@ -20,7 +20,7 @@
 
 ## Checklist
 
-- [ ] `npm ci && npm run lint && npm run test && npm run build` pasa en local
+- [ ] `npm ci && npm run lint && npm run test && npm run test:e2e && npm run build` pasa en local
 - [ ] Probado en móvil (≤ 760 px) y escritorio
 - [ ] Sin secretos, tokens ni datos de producción en el diff
 - [ ] Actualicé `CHANGELOG.md` si el cambio es visible para el usuario

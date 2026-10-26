@@ -4,6 +4,21 @@ Todos los cambios relevantes de este proyecto se documentan aquí.
 El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y el
 versionado [SemVer](https://semver.org/lang/es/).
 
+## [1.1.0] — 2026-10-26
+
+### Añadido
+
+- Pruebas de interfaz con Playwright (24 casos) en escritorio (1280×900) y móvil (Pixel 5):
+  titular del hero, CTA de WhatsApp, anclas del menú, menú móvil, desbordamiento
+  horizontal, texto alternativo, metadatos y errores de consola.
+- Cobertura de pruebas con `@vitest/coverage-v8` y umbrales mínimos sobre los
+  módulos con pruebas unitarias (`src/lib/format.js`, `src/lib/utils.js`,
+  `src/components/builder/blocks/blogHelpers.js`).
+- `public/og-cover.jpg` (1200×630, generado del propio hero) y metadatos
+  `og:image`, `twitter:card`, `canonical` y favicon en `index.html`.
+- Jobs de CI para cobertura y e2e, con artefactos de cobertura y reporte de
+  Playwright.
+
 ## [1.0.0] — 2026-10-26
 
 ### Añadido

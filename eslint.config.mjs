@@ -57,5 +57,13 @@ export default [
 		plugins: { horizons: unicodeEscapePlugin },
 		rules: { 'horizons/no-unicode-escapes-in-jsx': 'warn' },
 	},
-	{ files: ['tools/**/*.js', 'tailwind.config.js'], languageOptions: { globals: globals.node } },
+	{
+		files: ['tools/**/*.js', 'tailwind.config.js'],
+		languageOptions: { globals: globals.node },
+	},
+	{
+		// Configuración y pruebas que corren en Node, no en el navegador.
+		files: ['e2e/**/*.js', 'playwright.config.js', 'vitest.config.js', 'eslint.config.mjs'],
+		languageOptions: { globals: globals.node },
+	},
 ];
