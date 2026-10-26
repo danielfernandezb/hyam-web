@@ -1,0 +1,62 @@
+name: Disponibilidad
+
+on:
+  schedule:
+    # Cada 30 minutos. GitHub puede retrasar el cron en horas de alta carga.
+    - cron: '17,47 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ping:
+    name: ${{ matrix.sitio }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - sitio: hyamfood.com
+            url: https://hyamfood.com
+          - sitio: portafolio
+            url: https://danielfernandezb.github.io/portafolio-daniel/
+
+    steps:
+      - name: Comprobar respuesta
+        run: |
+          intento=1
+          while [ "$intento" -le 3 ]; do
+            respuesta=$(curl -sS -o /dev/null -L --max-time 20 \
+              -w '%{http_code} %{time_total}' "${{ matrix.url }}" || echo "000 0")
+            codigo=${respuesta% *}
+            tiempo=${respuesta#* }
+            echo "Intento $intento → HTTP $codigo en ${tiempo}s"
+            if [ "$codigo" = "200" ]; then
+              break
+            fi
+            intento=$((intento + 1))
+            sleep 10
+          done
+
+          if [ "$codigo" != "200" ]; then
+            echo "::error::${{ matrix.sitio }} respondió HTTP $codigo"
+            exit 1
+          fi
+
+          # Presupuesto de latencia del servidor (no incluye render en el navegador).
+          limite=5
+          if awk "BEGIN {exit !($tiempo > $limite)}"; then
+            echo "::error::${{ matrix.sitio }} tardó ${tiempo}s (límite ${limite}s)"
+            exit 1
+          fi
+
+      - name: Comprobar que el HTML tiene contenido real
+        run: |
+          cuerpo=$(curl -sS -L --max-time 20 "${{ matrix.url }}")
+          if [ "${#cuerpo}" -lt 500 ]; then
+            echo "::error::La respuesta es demasiado corta (${#cuerpo} bytes)"
+            exit 1
+          fi
+          echo "HTML recibido: ${#cuerpo} bytes"

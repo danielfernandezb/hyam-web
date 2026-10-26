@@ -5,6 +5,7 @@ Landing de una sola página para **HYAM**, hamburguesería artesanal y ahumada e
 [![Demo en vivo](https://img.shields.io/badge/demo-hyamfood.com-d2a24a?style=for-the-badge&labelColor=101a2b)](https://hyamfood.com)
 [![CI](https://github.com/danielfernandezb/hyam-web/actions/workflows/ci.yml/badge.svg)](https://github.com/danielfernandezb/hyam-web/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/danielfernandezb/hyam-web/actions/workflows/codeql.yml/badge.svg)](https://github.com/danielfernandezb/hyam-web/actions/workflows/codeql.yml)
+[![Disponibilidad](https://github.com/danielfernandezb/hyam-web/actions/workflows/uptime.yml/badge.svg)](https://github.com/danielfernandezb/hyam-web/actions/workflows/uptime.yml)
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=101a2b&labelColor=101a2b)](#)
 [![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=flat-square&logo=vite&logoColor=white&labelColor=101a2b)](#)
 [![Tailwind](https://img.shields.io/badge/Tailwind-3-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white&labelColor=101a2b)](#)
@@ -91,6 +92,7 @@ npm run lint
 | Presupuesto de bundle | JS ≤ 800 KB | push y PR |
 | Auditoría de dependencias | `npm audit` (high/critical) | push y PR |
 | Análisis estático | CodeQL `security-and-quality` | push, PR y semanal |
+| Disponibilidad | `curl` a producción (HTTP 200, latencia y tamaño) | cada 30 min |
 | Actualizaciones | Dependabot | semanal (npm) / mensual (Actions) |
 
 Las pruebas e2e cubren lo que un test unitario no puede: el titular del hero, el enlace real de WhatsApp, las seis anclas del menú, el menú móvil, el desbordamiento horizontal, el texto alternativo de las imágenes, los metadatos de Open Graph y la ausencia de errores en consola. Usan Chromium en dos viewports (1280×900 y Pixel 5) y sustituyen las fotos del CDN por un píxel para no depender de la red.
