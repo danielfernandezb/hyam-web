@@ -1,0 +1,102 @@
+[
+	{
+		"path": "/",
+		"componentName": "HomePage_system_home",
+		"importPath": "@/pages/builder/home/HomePage",
+		"exportName": "HomePage",
+		"locale": "system",
+		"pageId": "home",
+		"isHome": true,
+		"pageType": "default"
+	},
+	{
+		"path": "/ia-procesos-creativos-eticos",
+		"componentName": "IaProcesosCreativosEticosPage_system_1OUFyG",
+		"importPath": "@/pages/builder/ia-procesos-creativos-eticos/IaProcesosCreativosEticosPage",
+		"exportName": "IaProcesosCreativosEticosPage",
+		"locale": "system",
+		"pageId": "1OUFyG",
+		"isHome": false,
+		"pageType": "blog"
+	},
+	{
+		"path": "/lujo-sostenible-estetica-sobriedad",
+		"componentName": "LujoSostenibleEsteticaSobriedadPage_system_LQF2sf",
+		"importPath": "@/pages/builder/lujo-sostenible-estetica-sobriedad/LujoSostenibleEsteticaSobriedadPage",
+		"exportName": "LujoSostenibleEsteticaSobriedadPage",
+		"locale": "system",
+		"pageId": "LQF2sf",
+		"isHome": false,
+		"pageType": "blog"
+	},
+	{
+		"path": "/interfaces-fluidas-alto-rendimiento",
+		"componentName": "InterfacesFluidasAltoRendimientoPage_system_YkkDE8",
+		"importPath": "@/pages/builder/interfaces-fluidas-alto-rendimiento/InterfacesFluidasAltoRendimientoPage",
+		"exportName": "InterfacesFluidasAltoRendimientoPage",
+		"locale": "system",
+		"pageId": "YkkDE8",
+		"isHome": false,
+		"pageType": "blog"
+	},
+	{
+		"path": "/psicologia-tipografia-digital",
+		"componentName": "PsicologiaTipografiaDigitalPage_system_tTGQSI",
+		"importPath": "@/pages/builder/psicologia-tipografia-digital/PsicologiaTipografiaDigitalPage",
+		"exportName": "PsicologiaTipografiaDigitalPage",
+		"locale": "system",
+		"pageId": "tTGQSI",
+		"isHome": false,
+		"pageType": "blog"
+	},
+	{
+		"path": "/minimalismo-radical-diseno-corporativo",
+		"componentName": "MinimalismoRadicalDisenoCorporativoPage_system_x1xn_y",
+		"importPath": "@/pages/builder/minimalismo-radical-diseno-corporativo/MinimalismoRadicalDisenoCorporativoPage",
+		"exportName": "MinimalismoRadicalDisenoCorporativoPage",
+		"locale": "system",
+		"pageId": "x1xn-y",
+		"isHome": false,
+		"pageType": "blog"
+	},
+	{
+		"path": "/arquitectura-marca-expansion-global",
+		"componentName": "ArquitecturaMarcaExpansionGlobalPage_system_xBMEjL",
+		"importPath": "@/pages/builder/arquitectura-marca-expansion-global/ArquitecturaMarcaExpansionGlobalPage",
+		"exportName": "ArquitecturaMarcaExpansionGlobalPage",
+		"locale": "system",
+		"pageId": "xBMEjL",
+		"isHome": false,
+		"pageType": "blog"
+	},
+	{
+		"path": "/contacto",
+		"componentName": "ContactoPage_system_2QuchMKA2",
+		"importPath": "@/pages/builder/contacto/ContactoPage",
+		"exportName": "ContactoPage",
+		"locale": "system",
+		"pageId": "2QuchMKA2",
+		"isHome": false,
+		"pageType": "default"
+	},
+	{
+		"path": "/blog",
+		"componentName": "BlogPage_system_Pg32bRFpC",
+		"importPath": "@/pages/builder/blog/BlogPage",
+		"exportName": "BlogPage",
+		"locale": "system",
+		"pageId": "Pg32bRFpC",
+		"isHome": false,
+		"pageType": "default"
+	},
+	{
+		"path": "/nosotros",
+		"componentName": "NosotrosPage_system_n9imQPKO9",
+		"importPath": "@/pages/builder/nosotros/NosotrosPage",
+		"exportName": "NosotrosPage",
+		"locale": "system",
+		"pageId": "n9imQPKO9",
+		"isHome": false,
+		"pageType": "default"
+	}
+]

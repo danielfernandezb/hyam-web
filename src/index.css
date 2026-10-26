@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Outfit:wght@300..700&family=Caveat:wght@500;600&display=swap');
+
+/*
+  TEMPLATE STYLES: These styles are used as a base template.
+  AI is allowed to modify these styles as needed.
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  overflow-x: clip;
+  background-color: #0a0806;
+}
+
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-body {
+  font-family: 'Outfit', sans-serif;
+}
+
+.font-script {
+  font-family: 'Caveat', cursive;
+}
+
+.hero-burger-image {
+  -webkit-mask-image: radial-gradient(ellipse 76% 78% at 50% 50%, #000 56%, transparent 100%);
+  mask-image: radial-gradient(ellipse 76% 78% at 50% 50%, #000 56%, transparent 100%);
+}
+
+.hero-fire {
+  background:
+    radial-gradient(ellipse at 58% 76%, rgba(255, 116, 20, 0.48) 0%, rgba(182, 52, 8, 0.28) 22%, transparent 55%),
+    radial-gradient(ellipse at 74% 44%, rgba(234, 92, 13, 0.24) 0%, transparent 42%),
+    radial-gradient(ellipse at 34% 58%, rgba(121, 39, 10, 0.3) 0%, transparent 48%),
+    linear-gradient(115deg, transparent 18%, rgba(255, 137, 38, 0.12) 48%, transparent 72%);
+  filter: blur(18px) saturate(1.2);
+  opacity: 0.92;
+  animation: fire-breathe 4.5s ease-in-out infinite alternate;
+}
+
+.hero-fire::before,
+.hero-fire::after {
+  content: '';
+  position: absolute;
+  inset: 8% 4% 4%;
+  background-image:
+    radial-gradient(circle at 18% 62%, rgba(255, 182, 72, 0.85) 0 1px, transparent 2px),
+    radial-gradient(circle at 39% 28%, rgba(245, 116, 27, 0.75) 0 1px, transparent 2px),
+    radial-gradient(circle at 66% 22%, rgba(255, 199, 91, 0.72) 0 1px, transparent 2px),
+    radial-gradient(circle at 83% 57%, rgba(242, 91, 14, 0.8) 0 1px, transparent 2px),
+    radial-gradient(circle at 53% 82%, rgba(255, 143, 34, 0.7) 0 1px, transparent 2px);
+  opacity: 0.8;
+  animation: sparks-drift 5s ease-in-out infinite alternate;
+}
+
+.hero-fire::after {
+  inset: 18% -4% 0 18%;
+  filter: blur(3px);
+  opacity: 0.55;
+  transform: scale(1.15);
+  animation-delay: -2s;
+}
+
+@keyframes fire-breathe {
+  from { transform: scale(0.96); opacity: 0.72; }
+  to { transform: scale(1.04); opacity: 1; }
+}
+
+@keyframes sparks-drift {
+  from { transform: translate3d(-1%, 2%, 0) scale(0.98); }
+  to { transform: translate3d(1%, -2%, 0) scale(1.04); }
+}
+
+.ember {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, #f0c060 0%, rgba(210, 130, 40, 0.6) 60%, transparent 100%);
+  opacity: 0;
+  animation: ember-rise 6s linear infinite;
+}
+
+@keyframes ember-rise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-140px) scale(0.3);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ember {
+    animation: none;
+  }
+}
+
+/*
+  ---break---
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}

@@ -1,0 +1,29 @@
+# Dependencias
+node_modules/
+.pnpm-store/
+
+# Build
+dist/
+dist-ssr/
+*.local
+
+# Variables de entorno (nunca versionar credenciales)
+.env
+.env.*
+!.env.example
+
+# Logs y temporales
+npm-debug.log*
+yarn-error.log*
+.vite/
+.cache/
+
+# Sistema y editores
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Datos locales de PocketBase
+pb_data/
