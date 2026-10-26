@@ -3,6 +3,8 @@
 Landing de una sola página para **HYAM**, hamburguesería artesanal y ahumada en Cartagena. Estética oscura con acentos dorados, hero cinematográfico, menú, galería, pedidos por WhatsApp y selector de idioma.
 
 [![Demo en vivo](https://img.shields.io/badge/demo-hyamfood.com-d2a24a?style=for-the-badge&labelColor=101a2b)](https://hyamfood.com)
+[![CI](https://github.com/danielfernandezb/hyam-web/actions/workflows/ci.yml/badge.svg)](https://github.com/danielfernandezb/hyam-web/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/danielfernandezb/hyam-web/actions/workflows/codeql.yml/badge.svg)](https://github.com/danielfernandezb/hyam-web/actions/workflows/codeql.yml)
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=101a2b&labelColor=101a2b)](#)
 [![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=flat-square&logo=vite&logoColor=white&labelColor=101a2b)](#)
 [![Tailwind](https://img.shields.io/badge/Tailwind-3-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white&labelColor=101a2b)](#)
@@ -76,6 +78,23 @@ npm run lint
 ```
 
 **Nota sobre datos:** el cliente de PocketBase apunta al endpoint del hosting (`/hcgi/platform`). En local la interfaz se renderiza completa, pero las llamadas a datos necesitan ese backend; para probarlas, cambia `src/lib/pocketbaseClient.js` a tu propia instancia.
+
+## Calidad y CI
+
+| Control | Herramienta | Se ejecuta |
+| --- | --- | --- |
+| Lint | ESLint 9 | push y PR |
+| Build | Vite 7 en Node 20 y 22 | push y PR |
+| Presupuesto de bundle | JS ≤ 800 KB | push y PR |
+| Auditoría de dependencias | `npm audit` (high/critical) | push y PR |
+| Análisis estático | CodeQL `security-and-quality` | push, PR y semanal |
+| Actualizaciones | Dependabot | semanal (npm) / mensual (Actions) |
+
+```bash
+npm ci            # instalación reproducible
+npm run lint      # ESLint
+npm run build     # build de producción en dist/
+```
 
 ## Notas de ingeniería
 
