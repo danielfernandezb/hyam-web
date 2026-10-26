@@ -84,6 +84,7 @@ npm run lint
 | Control | Herramienta | Se ejecuta |
 | --- | --- | --- |
 | Lint | ESLint 9 | push y PR |
+| Tests unitarios | Vitest (32 casos) | push y PR |
 | Build | Vite 7 en Node 20 y 22 | push y PR |
 | Presupuesto de bundle | JS ≤ 800 KB | push y PR |
 | Auditoría de dependencias | `npm audit` (high/critical) | push y PR |
@@ -93,7 +94,8 @@ npm run lint
 ```bash
 npm ci            # instalación reproducible
 npm run lint      # ESLint
-npm run build     # build de producción en dist/
+npm run test      # Vitest
+npm run check     # lint + tests + build de una vez
 ```
 
 ## Notas de ingeniería

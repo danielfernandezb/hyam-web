@@ -39,6 +39,9 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Tests unitarios
+        run: npm run test
+
       - name: Build de producción
         run: npm run build
 
